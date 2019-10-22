@@ -1,0 +1,26 @@
+name: gobuster-csal
+base: core18
+version: '3.0.1'
+summary: Gobuster binary from Github releases
+description: |
+  Gobuster is a tool used to brute-force:
+
+  URIs (directories and files) in web sites.
+  DNS subdomains (with wildcard support).
+  Virtual Host names on target web servers.
+
+grade: stable
+confinement: strict
+
+apps:
+  gobuster:
+    command: bin/gobuster.git
+
+parts:
+  gobuster:
+    source: https://github.com/OJ/gobuster.git
+    source-tag: 'v3.0.1'
+    plugin: go
+    build-packages:
+      - build-essential
+      - git
